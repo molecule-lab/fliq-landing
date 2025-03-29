@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #ff4b6e;
+  --secondary: #9340ff;
+}
+
+@layer base {
+  body {
+    @apply antialiased;
+  }
+}
+
+/* Custom scrollbar styles removed to use default system scrollbar */
