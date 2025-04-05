@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import WaitlistModal from "@/components/WaitlistModal";
@@ -153,6 +153,21 @@ const APP_DATA = {
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+
+  useEffect(() => {
+    fetch(
+      "https://asia-south1-zap-dev-384118.cloudfunctions.net/feedback-service?product=fliq|dating",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+      }
+    )
+      .then(() => {
+        console.log("Form submitted successfully");
+      })
+      .catch((error) => console.error(error));
+  }, []);
 
   return (
     <main className="flex min-h-screen flex-col bg-white overflow-hidden pt-16 md:pt-20">
